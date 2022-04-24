@@ -1,0 +1,54 @@
+% настройки polyglossia
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+% локализация
+\addto\captionsrussian{
+	\renewcommand{\figurename}{Рис.}%
+	\renewcommand{\partname}{Глава}
+	\renewcommand{\contentsname}{\centerline{Содержание}}
+}
+
+% шрифты
+\setmainfont{Times New Roman}
+\newfontfamily\cyrillicfont{Times New Roman}
+
+% перечень использованных источников
+\addbibresource{refs.bib}
+
+% настройки полей
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{bindingoffset=0cm}
+
+% настройка ссылок и метаданных документа
+\hypersetup{unicode=true,colorlinks=true,linkcolor=red,citecolor=green,filecolor=magenta,urlcolor=cyan,
+	pdftitle={\docname},
+	pdfauthor={\student},
+	pdfsubject={\subject},
+	pdfcreator={\student},
+	pdfkeywords={\subject}
+}
+
+% оформления подписи рисунка
+\captionsetup[figure]{labelsep = period}
+
+\DeclareCaptionFormat{hfillstart}{\hfill#1#2#3\par}
+\captionsetup[table]{format=hfillstart,labelsep=newline,justification=centering,skip=-10pt,textfont=bf}
+
+% путь к каталогу с рисунками
+\graphicspath{{pictures/}}
+
+% Внесение titlepage в учёт счётчика страниц
+\makeatletter
+\renewenvironment{titlepage} {
+  \thispagestyle{empty}
+}
+\makeatother
+
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+\titlelabel{\thetitle.\quad}

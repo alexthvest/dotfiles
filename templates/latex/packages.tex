@@ -1,0 +1,30 @@
+% настройка кодировки, шрифтов и русского языка
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\setmainlanguage{russian}
+\setotherlanguage{english}
+
+\setmainfont{Times New Roman}
+\setromanfont{Times New Roman} 
+\setsansfont{Arial} 
+\setmonofont{Courier New} 
+
+\newfontfamily{\cyrillicfont}{Times New Roman} 
+\newfontfamily{\cyrillicfontrm}{Times New Roman}
+\newfontfamily{\cyrillicfonttt}{Courier New}
+\newfontfamily{\cyrillicfontsf}{Arial}
+
+\addto\captionsrussian{%
+  \renewcommand{\figurename}{Рис.}%
+  \renewcommand{\tablename}{Табл.}%
+}
+
+% графика
+\usepackage{graphicx}
+
+% установка полей
+\usepackage{geometry}
+
+% разное для математики
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
