@@ -51,7 +51,6 @@
     rnix-lsp
 
     ## dotnet
-    mono
     omnisharp-roslyn
 
     ## Rust

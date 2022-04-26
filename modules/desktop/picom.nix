@@ -1,19 +1,20 @@
 { config, pkgs, lib, ... }:
 
+with lib;
 let
   cfg = config.modules.picom;
 in
 {
   options.modules.picom = {
-    enable = lib.mkEnableOption "picom";
+    enable = mkEnableOption "picom";
 
-    fade = lib.mkOption {
-      type = lib.types.bool;
+    fade = mkOption {
+      type = types.bool;
       default = false;
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     services.picom = {
       enable = true;
       experimentalBackends = true;
