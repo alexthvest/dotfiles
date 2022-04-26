@@ -116,7 +116,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alexthvest = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "video" "networkmanager" "docker" ]; 
+    extraGroups = [ "wheel" "input" "audio" "video" "networkmanager" "docker" ]; 
     initialPassword = "123";
     shell = pkgs.zsh;
   };

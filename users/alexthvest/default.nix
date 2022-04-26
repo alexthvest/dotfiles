@@ -17,6 +17,7 @@
     alacritty
 
     pavucontrol
+    xdotool
 
     alacritty
     pfetch
@@ -30,7 +31,7 @@
     libreoffice-fresh
     zathura
 
-    # jetbrains.rider
+    jetbrains.rider
     beekeeper-studio
 
     nodejs
@@ -38,6 +39,9 @@
 
     dotnet-sdk
     docker-compose
+
+    ## Icons
+    papirus-icon-theme
   ];
 
   home.sessionVariables = {
@@ -46,6 +50,33 @@
 
   ## fzf
   programs.fzf.enable = true;
+
+  ## gestures
+  services.fusuma = {
+    enable = true;
+
+    settings = {
+      swipe = {
+        "3".left.command = "xdotool key super+Right";
+        "3".right.command = "xdotool key super+Left";
+      };
+    };
+  };
+
+  # awesome = {
+  #   signals = {
+  #     battery = ./signals/battery.nix;
+  #     wifi = ./signals/wifi.nix;
+  #   };
+  #
+  #   components = [
+  #
+  #   ];
+  # };
+  #
+  # topbar = awesome.mkComponent {
+  #
+  # };
 
   ## Home-Manager
   programs.home-manager.enable = true;
