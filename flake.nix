@@ -4,16 +4,17 @@
   inputs = {
     ## Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     ## Home Manager
-    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     ## Nixpkgs f2k
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
   let
     system = "x86_64-linux";
 
@@ -22,6 +23,11 @@
     ];
 
     pkgs = import nixpkgs {
+      inherit system overlays;
+      config.allowUnfree = true;
+    };
+
+    pkgs-unstable = import nixpkgs-unstable {
       inherit system overlays;
       config.allowUnfree = true;
     };
@@ -47,6 +53,10 @@
         homeDirectory = "/home/alexthvest";
 
         stateVersion = "21.11";
+
+        extraSpecialArgs = {
+          inherit pkgs-unstable;
+        };
 
         configuration = {
           nixpkgs.overlays = overlays;

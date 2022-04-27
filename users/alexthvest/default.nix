@@ -21,6 +21,7 @@
 
     alacritty
     pfetch
+    bpytop
     ranger
     flameshot
 
@@ -62,21 +63,6 @@
       };
     };
   };
-
-  # awesome = {
-  #   signals = {
-  #     battery = ./signals/battery.nix;
-  #     wifi = ./signals/wifi.nix;
-  #   };
-  #
-  #   components = [
-  #
-  #   ];
-  # };
-  #
-  # topbar = awesome.mkComponent {
-  #
-  # };
 
   ## Home-Manager
   programs.home-manager.enable = true;

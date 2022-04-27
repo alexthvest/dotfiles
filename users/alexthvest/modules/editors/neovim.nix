@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   programs.neovim = {
@@ -46,12 +46,9 @@
   home.packages = with pkgs; [
     ## Lua
     sumneko-lua-language-server
-    
+
     ## Nix
     rnix-lsp
-
-    ## dotnet
-    omnisharp-roslyn
 
     ## Rust
     rust-analyzer
@@ -59,5 +56,8 @@
     ## Typescript
     nodePackages.typescript
     nodePackages.typescript-language-server
-  ];
+  ] ++ (with pkgs-unstable; [
+    # dotnet
+    omnisharp-roslyn
+  ]);
 }
